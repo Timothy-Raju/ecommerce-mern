@@ -1,0 +1,32 @@
+<svg width="1200" height="400" viewBox="0 0 1200 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">i-emporio logo concept 3</title>
+  <desc id="desc">Modern rounded badge + wordmark with fillable background and olive green brand letters.</desc>
+  <defs>
+    <style>
+      :root {
+        --bg: #f7f3e7;
+        --brand: #6b8e23;
+      }
+      .bg { fill: var(--bg); }
+      .brand { fill: var(--brand); }
+      .wordmark {
+        font-family: "Manrope", "Segoe UI", sans-serif;
+        font-size: 116px;
+        font-weight: 650;
+        letter-spacing: 0.5px;
+      }
+    </style>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="1200" height="400" rx="28"/>
+
+  <g transform="translate(110 80)">
+    <rect class="brand" x="0" y="0" width="220" height="220" rx="110" opacity="0.12"/>
+    <rect class="brand" x="62" y="42" width="96" height="136" rx="22" fill="none" stroke="#6b8e23" stroke-width="14"/>
+    <path class="brand" d="M77 84h66" fill="none" stroke="#6b8e23" stroke-width="12" stroke-linecap="round"/>
+    <rect class="brand" x="108" y="92" width="12" height="50" rx="6"/>
+    <circle class="brand" cx="114" cy="73" r="10"/>
+  </g>
+
+  <text class="brand wordmark" x="370" y="238">i-emporio</text>
+</svg>

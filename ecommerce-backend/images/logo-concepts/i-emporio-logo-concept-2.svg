@@ -1,0 +1,32 @@
+<svg width="1200" height="400" viewBox="0 0 1200 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">i-emporio logo concept 2</title>
+  <desc id="desc">Modern geometric wordmark with subtle commerce cart motif and fillable background.</desc>
+  <defs>
+    <style>
+      :root {
+        --bg: #efe9d8;
+        --brand: #6b8e23;
+      }
+      .bg { fill: var(--bg); }
+      .brand { fill: var(--brand); stroke: var(--brand); }
+      .wordmark {
+        font-family: "Montserrat", "Segoe UI", sans-serif;
+        font-size: 110px;
+        font-weight: 700;
+        letter-spacing: 2px;
+      }
+    </style>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="1200" height="400" rx="20"/>
+
+  <g transform="translate(110 120)">
+    <path class="brand" d="M0 0h165l-18 90H22z" fill="none" stroke-width="16" stroke-linejoin="round"/>
+    <circle class="brand" cx="44" cy="122" r="12"/>
+    <circle class="brand" cx="124" cy="122" r="12"/>
+    <rect class="brand" x="176" y="34" width="12" height="74" rx="6"/>
+    <circle class="brand" cx="182" cy="17" r="11"/>
+  </g>
+
+  <text class="brand wordmark" x="350" y="245">i-emporio</text>
+</svg>
