@@ -119,6 +119,27 @@
   margin-left: 3px;
 }
 
+.checkout-page .quantity-controls {
+  display: inline-flex;
+  gap: 6px;
+  margin-left: 10px;
+}
+
+.checkout-page .quantity-change-button {
+  width: 26px;
+  height: 24px;
+  border: 1px solid rgb(8, 79, 45);
+  border-radius: 4px;
+  background-color: white;
+  color: rgb(8, 79, 45);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.checkout-page .quantity-change-button:hover {
+  background-color: rgb(233, 248, 239);
+}
+
 @media (max-width: 1000px) {
   .checkout-page .delivery-options {
     /* grid-column: 1 means this element will be placed

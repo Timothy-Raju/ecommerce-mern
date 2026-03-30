@@ -4,6 +4,20 @@ import { formatMoney } from "../../utils/money";
 import { DeliveryOptions } from "./DeliveryOptions";
 
 export function OrderSummary({deliveryOptions, cart, loadCart}){
+  const updateQuantity = async (cartItem, quantityChange) => {
+    const nextQuantity = cartItem.quantity + quantityChange;
+
+    if (nextQuantity <= 0) {
+      alert('Quantity cannot be 0');
+      return;
+    }
+
+    await axios.put(`/api/cart-items/${cartItem.productId}`, {
+      quantity: nextQuantity
+    });
+    await loadCart();
+  };
+
   return(
     <div className="order-summary">
     
@@ -44,9 +58,23 @@ export function OrderSummary({deliveryOptions, cart, loadCart}){
                       {cartItem.quantity}
                     </span>
                   </span>
-                  <span className="update-quantity-link link-primary">
-                    Update
+
+                  <span className="quantity-controls">
+                    <button
+                      className="quantity-change-button"
+                      onClick={() => updateQuantity(cartItem, -1)}
+                    >
+                      -
+                    </button>
+
+                    <button
+                      className="quantity-change-button"
+                      onClick={() => updateQuantity(cartItem, 1)}
+                    >
+                      +
+                    </button>
                   </span>
+
                   <span className="delete-quantity-link link-primary"
                     onClick={deleteCartItem}>
                     Delete
