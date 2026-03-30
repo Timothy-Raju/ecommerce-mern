@@ -1,6 +1,7 @@
 
 import dayjs from "dayjs";
 import { Fragment } from "react";
+import { Link } from "react-router";
 
 export function OrderDetaisGrid({order}){
   return(
@@ -18,7 +19,7 @@ export function OrderDetaisGrid({order}){
                 {orderProduct.product.name}
               </div>
               <div className="product-delivery-date">
-                Arriving on: {dayjs(orderProduct.estimateDeliveryTimeMs).format('MMMM D')}
+                Arriving on: {dayjs(orderProduct.estimatedDeliveryTimeMs).format('MMMM D')}
               </div>
               <div className="product-quantity">
                 Quantity: {orderProduct.quantity}
@@ -30,11 +31,11 @@ export function OrderDetaisGrid({order}){
             </div>
 
             <div className="product-actions">
-              <a href="/tracking">
+              <Link to={`/tracking?orderId=${order.id}&productId=${orderProduct.productId}`}>
                 <button className="track-package-button button-secondary">
                   Track package
                 </button>
-              </a>
+              </Link>
             </div>  
           </Fragment>
         );
