@@ -1,8 +1,9 @@
+import 'dotenv/config';
 import express from 'express';
 import cors from 'cors';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { sequelize } from './models/index.js';
+import { connectToDatabase } from './models/index.js';
 import productRoutes from './routes/products.js';
 import deliveryOptionRoutes from './routes/deliveryOptions.js';
 import cartItemRoutes from './routes/cartItems.js';
@@ -60,10 +61,10 @@ app.use((err, req, res, next) => {
 });
 /* eslint-enable no-unused-vars */
 
-// Sync database and load default data if none exist
-await sequelize.sync();
+// Connect to MongoDB and load default data if no products exist.
+await connectToDatabase();
 
-const productCount = await Product.count();
+const productCount = await Product.countDocuments();
 if (productCount === 0) {
   const timestamp = Date.now();
 
@@ -91,10 +92,10 @@ if (productCount === 0) {
     updatedAt: new Date(timestamp + index)
   }));
 
-  await Product.bulkCreate(productsWithTimestamps);
-  await DeliveryOption.bulkCreate(deliveryOptionsWithTimestamps);
-  await CartItem.bulkCreate(cartItemsWithTimestamps);
-  await Order.bulkCreate(ordersWithTimestamps);
+  await Product.insertMany(productsWithTimestamps);
+  await DeliveryOption.insertMany(deliveryOptionsWithTimestamps);
+  await CartItem.insertMany(cartItemsWithTimestamps);
+  await Order.insertMany(ordersWithTimestamps);
 
   console.log('Default data added to the database.');
 }

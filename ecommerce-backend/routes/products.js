@@ -8,7 +8,7 @@ router.get('/', async (req, res) => {
 
   let products;
   if (search) {
-    products = await Product.findAll();
+    products = await Product.find({}).sort({ createdAt: 1 }).select('-_id').lean();
 
     // Filter products by case-insensitive search on name or keywords
     const lowerCaseSearch = search.toLowerCase();
@@ -22,7 +22,7 @@ router.get('/', async (req, res) => {
     });
 
   } else {
-    products = await Product.findAll();
+    products = await Product.find({}).sort({ createdAt: 1 }).select('-_id').lean();
   }
 
   res.json(products);

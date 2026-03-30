@@ -1,27 +1,29 @@
-import { DataTypes } from 'sequelize';
-import { sequelize } from './index.js';
+import { mongoose } from './index.js';
 
-export const DeliveryOption = sequelize.define('DeliveryOption', {
+const deliveryOptionSchema = new mongoose.Schema({
   id: {
-    type: DataTypes.STRING,
-    primaryKey: true
+    type: String,
+    required: true,
+    unique: true
   },
   deliveryDays: {
-    type: DataTypes.INTEGER,
-    allowNull: false
+    type: Number,
+    required: true
   },
   priceCents: {
-    type: DataTypes.INTEGER,
-    allowNull: false
-  },
-  createdAt: {
-    type: DataTypes.DATE(3)
-  },
-  updatedAt: {
-    type: DataTypes.DATE(3)
-  },
+    type: Number,
+    required: true
+  }
 }, {
-  defaultScope: {
-    order: [['createdAt', 'ASC']]
+  timestamps: true,
+  versionKey: false,
+  id: false,
+  toJSON: {
+    transform: (_doc, ret) => {
+      delete ret._id;
+      return ret;
+    }
   }
 });
+
+export const DeliveryOption = mongoose.models.DeliveryOption || mongoose.model('DeliveryOption', deliveryOptionSchema);

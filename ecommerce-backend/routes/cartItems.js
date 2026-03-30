@@ -7,13 +7,13 @@ const router = express.Router();
 
 router.get('/', async (req, res) => {
   const expand = req.query.expand;
-  let cartItems = await CartItem.findAll();
+  let cartItems = await CartItem.find({}).sort({ createdAt: 1 }).select('-_id').lean();
 
   if (expand === 'product') {
     cartItems = await Promise.all(cartItems.map(async (item) => {
-      const product = await Product.findByPk(item.productId);
+      const product = await Product.findOne({ id: item.productId }).select('-_id').lean();
       return {
-        ...item.toJSON(),
+        ...item,
         product
       };
     }));
@@ -25,7 +25,7 @@ router.get('/', async (req, res) => {
 router.post('/', async (req, res) => {
   const { productId, quantity } = req.body;
 
-  const product = await Product.findByPk(productId);
+  const product = await Product.findOne({ id: productId });
   if (!product) {
     return res.status(400).json({ error: 'Product not found' });
   }
@@ -34,12 +34,12 @@ router.post('/', async (req, res) => {
     return res.status(400).json({ error: 'Quantity must be a number between 1 and 10' });
   }
 
-  let cartItem = await CartItem.findOne({ where: { productId } });
+  let cartItem = await CartItem.findOne({ productId });
   if (cartItem) {
     cartItem.quantity += quantity;
     await cartItem.save();
   } else {
-    cartItem = await CartItem.create({ productId, quantity, deliveryOptionId: "1" });
+    cartItem = await CartItem.create({ productId, quantity, deliveryOptionId: '1' });
   }
 
   res.status(201).json(cartItem);
@@ -49,7 +49,7 @@ router.put('/:productId', async (req, res) => {
   const { productId } = req.params;
   const { quantity, deliveryOptionId } = req.body;
 
-  const cartItem = await CartItem.findOne({ where: { productId } });
+  const cartItem = await CartItem.findOne({ productId });
   if (!cartItem) {
     return res.status(404).json({ error: 'Cart item not found' });
   }
@@ -62,7 +62,7 @@ router.put('/:productId', async (req, res) => {
   }
 
   if (deliveryOptionId !== undefined) {
-    const deliveryOption = await DeliveryOption.findByPk(deliveryOptionId);
+    const deliveryOption = await DeliveryOption.findOne({ id: deliveryOptionId });
     if (!deliveryOption) {
       return res.status(400).json({ error: 'Invalid delivery option' });
     }
@@ -76,12 +76,12 @@ router.put('/:productId', async (req, res) => {
 router.delete('/:productId', async (req, res) => {
   const { productId } = req.params;
 
-  const cartItem = await CartItem.findOne({ where: { productId } });
+  const cartItem = await CartItem.findOne({ productId });
   if (!cartItem) {
     return res.status(404).json({ error: 'Cart item not found' });
   }
 
-  await cartItem.destroy();
+  await cartItem.deleteOne();
   res.status(204).send();
 });
 

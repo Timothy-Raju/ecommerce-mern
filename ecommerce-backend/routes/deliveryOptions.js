@@ -5,14 +5,14 @@ const router = express.Router();
 
 router.get('/', async (req, res) => {
   const expand = req.query.expand;
-  const deliveryOptions = await DeliveryOption.findAll();
+  const deliveryOptions = await DeliveryOption.find({}).sort({ createdAt: 1 }).select('-_id').lean();
   let response = deliveryOptions;
 
   if (expand === 'estimatedDeliveryTime') {
     response = deliveryOptions.map(option => {
       const deliveryTimeMs = Date.now() + option.deliveryDays * 24 * 60 * 60 * 1000;
       return {
-        ...option.toJSON(),
+        ...option,
         estimatedDeliveryTimeMs: deliveryTimeMs
       };
     });

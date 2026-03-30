@@ -8,19 +8,19 @@ const router = express.Router();
 
 router.get('/', async (req, res) => {
   const expand = req.query.expand;
-  let orders = await Order.unscoped().findAll({ order: [['orderTimeMs', 'DESC']] }); // Sort by most recent
+  let orders = await Order.find({}).sort({ orderTimeMs: -1 }).select('-_id').lean(); // Sort by most recent
 
   if (expand === 'products') {
     orders = await Promise.all(orders.map(async (order) => {
       const products = await Promise.all(order.products.map(async (product) => {
-        const productDetails = await Product.findByPk(product.productId);
+        const productDetails = await Product.findOne({ id: product.productId }).select('-_id').lean();
         return {
           ...product,
           product: productDetails
         };
       }));
       return {
-        ...order.toJSON(),
+        ...order,
         products
       };
     }));
@@ -30,7 +30,7 @@ router.get('/', async (req, res) => {
 });
 
 router.post('/', async (req, res) => {
-  const cartItems = await CartItem.findAll();
+  const cartItems = await CartItem.find({}).sort({ createdAt: 1 });
 
   if (cartItems.length === 0) {
     return res.status(400).json({ error: 'Cart is empty' });
@@ -38,11 +38,11 @@ router.post('/', async (req, res) => {
 
   let totalCostCents = 0;
   const products = await Promise.all(cartItems.map(async (item) => {
-    const product = await Product.findByPk(item.productId);
+    const product = await Product.findOne({ id: item.productId });
     if (!product) {
       throw new Error(`Product not found: ${item.productId}`);
     }
-    const deliveryOption = await DeliveryOption.findByPk(item.deliveryOptionId);
+    const deliveryOption = await DeliveryOption.findOne({ id: item.deliveryOptionId });
     if (!deliveryOption) {
       throw new Error(`Invalid delivery option: ${item.deliveryOptionId}`);
     }
@@ -65,7 +65,7 @@ router.post('/', async (req, res) => {
     products
   });
 
-  await CartItem.destroy({ where: {} });
+  await CartItem.deleteMany({});
 
   res.status(201).json(order);
 });
@@ -74,21 +74,21 @@ router.get('/:orderId', async (req, res) => {
   const { orderId } = req.params;
   const expand = req.query.expand;
 
-  let order = await Order.findByPk(orderId);
+  let order = await Order.findOne({ id: orderId }).select('-_id').lean();
   if (!order) {
     return res.status(404).json({ error: 'Order not found' });
   }
 
   if (expand === 'products') {
     const products = await Promise.all(order.products.map(async (product) => {
-      const productDetails = await Product.findByPk(product.productId);
+      const productDetails = await Product.findOne({ id: product.productId }).select('-_id').lean();
       return {
         ...product,
         product: productDetails
       };
     }));
     order = {
-      ...order.toJSON(),
+      ...order,
       products
     };
   }

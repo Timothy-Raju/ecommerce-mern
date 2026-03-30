@@ -1,5 +1,4 @@
 import express from 'express';
-import { sequelize } from '../models/index.js';
 import { Product } from '../models/Product.js';
 import { DeliveryOption } from '../models/DeliveryOption.js';
 import { CartItem } from '../models/CartItem.js';
@@ -12,7 +11,10 @@ import { defaultOrders } from '../defaultData/defaultOrders.js';
 const router = express.Router();
 
 router.post('/', async (req, res) => {
-  await sequelize.sync({ force: true });
+  await Product.deleteMany({});
+  await DeliveryOption.deleteMany({});
+  await CartItem.deleteMany({});
+  await Order.deleteMany({});
 
   const timestamp = Date.now();
 
@@ -40,10 +42,10 @@ router.post('/', async (req, res) => {
     updatedAt: new Date(timestamp + index)
   }));
 
-  await Product.bulkCreate(productsWithTimestamps);
-  await DeliveryOption.bulkCreate(deliveryOptionsWithTimestamps);
-  await CartItem.bulkCreate(cartItemsWithTimestamps);
-  await Order.bulkCreate(ordersWithTimestamps);
+  await Product.insertMany(productsWithTimestamps);
+  await DeliveryOption.insertMany(deliveryOptionsWithTimestamps);
+  await CartItem.insertMany(cartItemsWithTimestamps);
+  await Order.insertMany(ordersWithTimestamps);
 
   res.status(204).send();
 });
