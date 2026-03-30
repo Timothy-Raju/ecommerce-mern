@@ -7,7 +7,7 @@ export const defaultProducts = [
       "stars": 4.5,
       "count": 87
     },
-    "priceCents": 1090,
+    "priceCents": 90470,
     "keywords": ["socks", "sports", "apparel"]
   },
   {
@@ -18,7 +18,7 @@ export const defaultProducts = [
       "stars": 4,
       "count": 127
     },
-    "priceCents": 2095,
+    "priceCents": 173885,
     "keywords": ["sports", "basketballs"]
   },
   {
@@ -29,7 +29,7 @@ export const defaultProducts = [
       "stars": 4.5,
       "count": 56
     },
-    "priceCents": 799,
+    "priceCents": 66317,
     "keywords": ["tshirts", "apparel", "mens"]
   },
   {
@@ -40,7 +40,7 @@ export const defaultProducts = [
       "stars": 5,
       "count": 2197
     },
-    "priceCents": 1899,
+    "priceCents": 157617,
     "keywords": ["toaster", "kitchen", "appliances"]
   },
   {
@@ -51,7 +51,7 @@ export const defaultProducts = [
       "stars": 4,
       "count": 37
     },
-    "priceCents": 2067,
+    "priceCents": 171561,
     "keywords": ["plates", "kitchen", "dining"]
   },
   {
@@ -62,7 +62,7 @@ export const defaultProducts = [
       "stars": 4.5,
       "count": 175
     },
-    "priceCents": 3499,
+    "priceCents": 290417,
     "keywords": ["kitchen", "cookware"]
   },
   {
@@ -73,7 +73,7 @@ export const defaultProducts = [
       "stars": 4.5,
       "count": 317
     },
-    "priceCents": 2400,
+    "priceCents": 199200,
     "keywords": ["sweaters", "apparel"]
   },
   {
@@ -84,7 +84,7 @@ export const defaultProducts = [
       "stars": 4.5,
       "count": 144
     },
-    "priceCents": 3599,
+    "priceCents": 298717,
     "keywords": ["bathroom", "washroom", "restroom", "towels", "bath towels"]
   },
   {
@@ -95,7 +95,7 @@ export const defaultProducts = [
       "stars": 4,
       "count": 99
     },
-    "priceCents": 2374,
+    "priceCents": 197042,
     "keywords": ["kleenex", "tissues", "kitchen", "napkins"]
   },
   {
@@ -106,7 +106,7 @@ export const defaultProducts = [
       "stars": 4.5,
       "count": 235
     },
-    "priceCents": 2970,
+    "priceCents": 246510,
     "keywords": ["robe", "swimsuit", "swimming", "bathing", "apparel"]
   },
   {
@@ -117,7 +117,7 @@ export const defaultProducts = [
       "stars": 4.5,
       "count": 2286
     },
-    "priceCents": 5300,
+    "priceCents": 439900,
     "keywords": ["womens", "shoes", "heels", "sandals"]
   },
   {
@@ -128,7 +128,7 @@ export const defaultProducts = [
       "stars": 4.5,
       "count": 30
     },
-    "priceCents": 3560,
+    "priceCents": 295480,
     "keywords": ["accessories", "shades"]
   },
   {
@@ -139,7 +139,7 @@ export const defaultProducts = [
       "stars": 4.5,
       "count": 232
     },
-    "priceCents": 4599,
+    "priceCents": 381717,
     "keywords": ["bedroom", "curtains", "home"]
   },
   {
@@ -150,7 +150,7 @@ export const defaultProducts = [
       "stars": 4,
       "count": 160
     },
-    "priceCents": 1699,
+    "priceCents": 141017,
     "keywords": ["shorts", "apparel", "womens"]
   },
   {
@@ -161,7 +161,7 @@ export const defaultProducts = [
       "stars": 5,
       "count": 846
     },
-    "priceCents": 5074,
+    "priceCents": 421142,
     "keywords": ["water kettle", "appliances", "kitchen"]
   },
   {
@@ -172,7 +172,7 @@ export const defaultProducts = [
       "stars": 4,
       "count": 89
     },
-    "priceCents": 5390,
+    "priceCents": 447370,
     "keywords": ["shoes", "running shoes", "footwear"]
   },
   {
@@ -183,7 +183,7 @@ export const defaultProducts = [
       "stars": 4,
       "count": 215
     },
-    "priceCents": 2200,
+    "priceCents": 182600,
     "keywords": ["hats", "straw hats", "summer", "apparel"]
   },
   {
@@ -194,7 +194,7 @@ export const defaultProducts = [
       "stars": 4,
       "count": 229
     },
-    "priceCents": 4590,
+    "priceCents": 380970,
     "keywords": ["shoes", "running shoes", "footwear", "mens"]
   },
   {
@@ -205,7 +205,7 @@ export const defaultProducts = [
       "stars": 4.5,
       "count": 2465
     },
-    "priceCents": 3374,
+    "priceCents": 280042,
     "keywords": ["sweaters", "apparel"]
   },
   {
@@ -216,7 +216,7 @@ export const defaultProducts = [
       "stars": 4.5,
       "count": 119
     },
-    "priceCents": 1850,
+    "priceCents": 153550,
     "keywords": ["bathmat", "bathroom", "home"]
   },
   {
@@ -227,7 +227,7 @@ export const defaultProducts = [
       "stars": 4,
       "count": 326
     },
-    "priceCents": 2640,
+    "priceCents": 219120,
     "keywords": ["shoes", "flats", "womens", "footwear"]
   },
   {
@@ -238,7 +238,7 @@ export const defaultProducts = [
       "stars": 4.5,
       "count": 2556
     },
-    "priceCents": 1599,
+    "priceCents": 132717,
     "keywords": ["tshirts", "shirts", "apparel", "mens"]
   },
   {
@@ -249,7 +249,7 @@ export const defaultProducts = [
       "stars": 4.5,
       "count": 305
     },
-    "priceCents": 2899,
+    "priceCents": 240617,
     "keywords": ["bathroom", "cleaning"]
   },
   {
@@ -260,7 +260,7 @@ export const defaultProducts = [
       "stars": 4.5,
       "count": 52
     },
-    "priceCents": 6799,
+    "priceCents": 564317,
     "keywords": ["jewelry", "accessories", "womens"]
   },
   {
@@ -271,7 +271,7 @@ export const defaultProducts = [
       "stars": 4,
       "count": 456
     },
-    "priceCents": 4399,
+    "priceCents": 365117,
     "keywords": ["bedroom", "bed sheets", "sheets", "covers", "home"]
   },
   {
@@ -282,7 +282,7 @@ export const defaultProducts = [
       "stars": 5,
       "count": 83
     },
-    "priceCents": 1950,
+    "priceCents": 161850,
     "keywords": ["hats", "winter hats", "beanies", "apparel", "womens"]
   },
   {
@@ -293,7 +293,7 @@ export const defaultProducts = [
       "stars": 4.5,
       "count": 9017
     },
-    "priceCents": 2290,
+    "priceCents": 190070,
     "keywords": ["pants", "apparel", "mens"]
   },
   {
@@ -304,7 +304,7 @@ export const defaultProducts = [
       "stars": 3.5,
       "count": 42
     },
-    "priceCents": 3690,
+    "priceCents": 306270,
     "keywords": ["sunglasses", "glasses", "accessories", "shades"]
   },
   {
@@ -315,7 +315,7 @@ export const defaultProducts = [
       "stars": 4.5,
       "count": 562
     },
-    "priceCents": 2499,
+    "priceCents": 207417,
     "keywords": ["footwear", "men", "sneakers"]
   },
   {
@@ -326,7 +326,7 @@ export const defaultProducts = [
       "stars": 4.5,
       "count": 511
     },
-    "priceCents": 6797,
+    "priceCents": 564151,
     "keywords": ["cooking set", "kitchen"]
   },
   {
@@ -337,7 +337,7 @@ export const defaultProducts = [
       "stars": 4.5,
       "count": 130
     },
-    "priceCents": 2549,
+    "priceCents": 211567,
     "keywords": ["bathroom", "washroom", "mirrors", "home"]
   },
   {
@@ -348,7 +348,7 @@ export const defaultProducts = [
       "stars": 4.5,
       "count": 248
     },
-    "priceCents": 3400,
+    "priceCents": 282200,
     "keywords": ["pants", "apparel", "womens"]
   },
   {
@@ -359,7 +359,7 @@ export const defaultProducts = [
       "stars": 4.5,
       "count": 117
     },
-    "priceCents": 3467,
+    "priceCents": 287761,
     "keywords": ["accessories", "womens"]
   },
   {
@@ -370,7 +370,7 @@ export const defaultProducts = [
       "stars": 4,
       "count": 126
     },
-    "priceCents": 2899,
+    "priceCents": 240617,
     "keywords": ["food containers", "kitchen"]
   },
   {
@@ -381,7 +381,7 @@ export const defaultProducts = [
       "stars": 4.5,
       "count": 1211
     },
-    "priceCents": 8250,
+    "priceCents": 684750,
     "keywords": ["espresso makers", "kitchen", "appliances"]
   },
   {
@@ -392,7 +392,7 @@ export const defaultProducts = [
       "stars": 4.5,
       "count": 363
     },
-    "priceCents": 3099,
+    "priceCents": 257217,
     "keywords": ["bedroom", "home", "curtains"]
   },
   {
@@ -403,7 +403,7 @@ export const defaultProducts = [
       "stars": 4.5,
       "count": 93
     },
-    "priceCents": 2990,
+    "priceCents": 248170,
     "keywords": ["bathroom", "home", "towels"]
   },
   {
@@ -414,7 +414,7 @@ export const defaultProducts = [
       "stars": 4,
       "count": 89
     },
-    "priceCents": 3390,
+    "priceCents": 281370,
     "keywords": ["shoes", "running shoes", "footwear"]
   },
   {
@@ -425,7 +425,7 @@ export const defaultProducts = [
       "stars": 4,
       "count": 3
     },
-    "priceCents": 10747,
+    "priceCents": 892001,
     "keywords": ["food blenders", "kitchen", "appliances"]
   },
   {
@@ -436,7 +436,7 @@ export const defaultProducts = [
       "stars": 4.5,
       "count": 3157
     },
-    "priceCents": 3800,
+    "priceCents": 315400,
     "keywords": ["sweaters", "hoodies", "apparel", "mens"]
   },
   {
@@ -447,7 +447,7 @@ export const defaultProducts = [
       "stars": 5,
       "count": 679
     },
-    "priceCents": 3899,
+    "priceCents": 323617,
     "keywords": ["bowls set", "kitchen"]
   },
   {
@@ -458,7 +458,7 @@ export const defaultProducts = [
       "stars": 4.5,
       "count": 1045
     },
-    "priceCents": 1899,
+    "priceCents": 157617,
     "keywords": ["kitchen", "kitchen towels", "tissues"]
   }
 ];

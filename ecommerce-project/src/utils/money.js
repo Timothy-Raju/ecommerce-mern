@@ -1,4 +1,9 @@
 
 export function formatMoney(amountCents){
-  return `$${(amountCents/100).toFixed(2)}`;
+  return new Intl.NumberFormat('en-IN', {
+    style: 'currency',
+    currency: 'INR',
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2
+  }).format(amountCents / 10000);
 }

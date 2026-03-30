@@ -38,7 +38,7 @@ describe('Product component', () => {
 
 
     expect(
-      screen.getByText('$10.90')
+      screen.getByText('₹10.90')
     ).toBeInTheDocument();
 
     expect(

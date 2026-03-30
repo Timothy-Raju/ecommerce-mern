@@ -100,6 +100,23 @@ if (productCount === 0) {
   console.log('Default data added to the database.');
 }
 
+const sampleProduct = await Product.findOne({}).select('priceCents').lean();
+if (sampleProduct && sampleProduct.priceCents < 10000) {
+  await Product.updateMany({}, [
+    { $set: { priceCents: { $multiply: ['$priceCents', 83] } } }
+  ]);
+
+  await DeliveryOption.updateMany({}, [
+    { $set: { priceCents: { $multiply: ['$priceCents', 83] } } }
+  ]);
+
+  await Order.updateMany({}, [
+    { $set: { totalCostCents: { $multiply: ['$totalCostCents', 83] } } }
+  ]);
+
+  console.log('Existing data converted from USD to INR pricing.');
+}
+
 // Start server
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
